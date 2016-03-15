@@ -36,6 +36,7 @@ const path = {
     SASS_SRC: dir.SRC + '/_scss/**',
 
     PROD_CONSTANTS: 'GlobalConstants_prod.js',
+    STAGING_CONSTANTS: 'GlobalConstants_staging.js',
     DEV_CONSTANTS: 'GlobalConstants_dev.js',
     LOCAL_CONSTANTS: 'GlobalConstants_local.js',
     CONSTANTS_DESTNAME: 'GlobalConstants.js',
@@ -69,7 +70,8 @@ let build = false;
 let environmentConstantsEnum = {
     LOCAL: 0,
     DEV: 1,
-    PROD: 2
+    STAGING: 2,
+    PROD: 3
 };
 let environmentConstants = environmentConstantsEnum.DEV;
 
@@ -107,7 +109,7 @@ gulp.task('docs', () => {
 
 // Use the proper constants file and move to src
 gulp.task('copyConstants', () => {
-    return gulp.src(!environmentConstants ? path.LOCAL_CONSTANTS : ((environmentConstants === 1) ? path.DEV_CONSTANTS : path.PROD_CONSTANTS))
+    return gulp.src(!environmentConstants ? path.LOCAL_CONSTANTS : ((environmentConstants === 1) ? path.DEV_CONSTANTS : ((environmentConstants === 2) ? path.STAGING_CONSTANTS : path.PROD_CONSTANTS)))
         .pipe(rename(path.CONSTANTS_DESTNAME))
         .pipe(gulp.dest(path.CONSTANTS_DEST));
 });
@@ -188,6 +190,11 @@ gulp.task('set-prod-constants', () => {
     environmentConstants = environmentConstantsEnum.PROD;
 });
 
+// Set constants variable for production constants file
+gulp.task('set-staging-constants', () => {
+    environmentConstants = environmentConstantsEnum.STAGING;
+});
+
 // Set constants variable for local constants file
 gulp.task('set-local-constants', () => {
     environmentConstants = environmentConstantsEnum.LOCAL;
@@ -195,6 +202,9 @@ gulp.task('set-local-constants', () => {
 
 // Production task
 gulp.task('production', ['set-build', 'set-prod-constants', 'minify']);
+
+// Production task
+gulp.task('staging', ['set-build', 'set-staging-constants', 'minify']);
 
 // Build with dev constants for demos task
 gulp.task('buildDev', ['set-build', 'minify']);
