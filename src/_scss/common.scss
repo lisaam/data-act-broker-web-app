@@ -1,5 +1,16 @@
 body{
 	-webkit-font-smoothing: antialiased;
+	font-smooth: always;
+}
+
+.site_wrap{
+	@include display(flex);
+    @include flex-direction(column);
+    min-height: 100vh;
+}
+
+.site_content{
+@include flex(1);
 }
 
 /* Colors */
@@ -172,8 +183,7 @@ p {
 		}
 
 		#usa-da-header-link-holder {
-			padding: 0 10px;
-			margin: 0;
+			padding: 0 12px;
 			height: 100%;
 			line-height: $header-height;
 			font-size: 15px;
@@ -183,8 +193,13 @@ p {
 				height: 100%;
 				display: table;
 				margin: 0;
+				border-right: 1px solid #3b4452;
 				&:before {
 					padding: 0;
+					display: none;
+				}
+				&:first-child{
+					border-left: 1px solid #3b4452;
 				}
 			}
 		}
@@ -203,13 +218,32 @@ p {
 			}
 
 			&.disabled {
-				background-color: $color-gray;
-				padding: 2.0rem 1.0rem 0;
 				cursor: default;
+				color: #71747c;
 
-				.comingSoon {
+				& .comingSoon {
 					text-align: center;
 					font-size: 1.3rem;
+					background: url('../graphics/coming_soon_ribbon.png');
+					height: 61px;
+					width: 92px;
+					display: block;
+					position: absolute;
+					top: 0;
+					right: -2px;
+					z-index: 9999;
+				}
+				&:hover {
+					background-color: $color-gray-dark;
+				}
+			}
+
+			&.admin {
+				background-color: $color-cool-blue-lighter;
+				color: $color-gray-dark;
+
+				&:hover {
+					background-color: $color-cool-blue-light;
 				}
 			}
 		}
@@ -222,6 +256,32 @@ p {
 		#usa-da-header-link-holder > li > .usa-da-user-info {
 			background-color: $color-gray;
 			color: $color-gray-light;
+		}
+
+		#usa-da-header-link-holder > li > .header-dropdown {
+			@extend .dropdown-menu;
+			display: block;
+			border-radius: 0;
+			background-color: $color-gray-dark;
+			border: 1px solid #3b4452;
+
+
+			li {
+				border: none;
+				width: 100%;
+
+				a {
+					color: $color-primary-alt;
+					vertical-align: middle;
+					padding: 1.5rem 1.0rem;
+					font-size: 1.4rem;
+
+					&:hover {
+						background-color: $color-darkest;
+						color: $color-primary-alt;
+					}
+				}
+			}
 		}
 	}
 }
@@ -245,27 +305,49 @@ p {
 	color: white;
 	background-color: $color-darkest;
 
-	.row.usa-da-content-landing {
+	& .row.usa-da-content-landing {
 		background: url('../graphics/bar_bg.png') no-repeat bottom right;
 		padding-bottom: 20px;
 	}
-	.row.usa-da-content-add-data { background: url('../graphics/line_bg.png') no-repeat bottom right; }
+	& .row.usa-da-content-add-data {
+		background: url('../graphics/line_bg.png') no-repeat bottom right;
+	}
 }
 
 .usa-da-content-light-gray {
 	color: $color-gray-light;
 	background-color: $color-gray-lightest;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.usa-da-content-lighter-gray {
+	color: $color-base;
+	background-color: $color-gray-lighter;
+	border-bottom: 1px solid #e5e5e5;
 }
 
 .usa-da-page-title {
-	p {
-		font-size: $h4-font-size;
-		margin-bottom: 20px;
+	& h1 {
+		margin-top: 0;
+	}
+	& p {
+		font-size: 1.6rem;
+		margin: 0 0 2.6rem 0;
+		&:last-child{
+			margin-bottom: 0;
+		}
 	}
 
-	ul {
-		font-size: $h4-font-size;
+	& ul {
+		font-size: 1.6rem;
 		margin-left: 3rem;
+		margin-bottom: 2.6rem;
+	}
+}
+
+.site_content {
+	&.pending-page {
+		background-color: $color-darkest;
 	}
 }
 
@@ -274,7 +356,7 @@ p {
 	margin: 0 auto;
 	font-size: 1.3em;
 	font-weight: $font-bold;
-	padding-top: 1em;
+	padding: 5rem 0;
 
 	/* Progress Tracker v2 */
 	.usa-da-progress-bar-holder[data-steps="2"] li { width: 49%; }
@@ -303,6 +385,8 @@ p {
 		text-align: center;
 		position: relative;
 		z-index:5;
+		margin: 0.5rem 0 0;
+		font-size: 1.4rem;
 
 		&::before {
 			display: none;
@@ -317,7 +401,6 @@ p {
 		display: block;
 		vertical-align: bottom;
 		text-align: center;
-		margin-bottom: 1em;
 		color: $color-gray-dark;
 		opacity: 0.3;
 	}
@@ -519,18 +602,22 @@ p {
     font-size: 1.4rem;
     border-radius: 0;
     position: relative;
-    & h3 {
+
+	h3 {
         font-size: 2.4rem;
         font-weight: $font-bold;
         margin: -4px 0 5px 48px;
     }
-    & h5{
+
+	h5 {
         margin:10px 0 8px;
     }
-    & p {
+
+	p, ul {
         margin: 5px 0 5px 48px;
     }
-    & .glyphicon {
+
+	.glyphicon {
         font-size: 3.2rem;
         position: absolute;
         top: 15px;
@@ -540,28 +627,28 @@ p {
 
 .alert-success {
     background: #e7f4e4;
-    & .glyphicon {
+    .glyphicon {
         color: #5cb85c;
     }
 }
 
 .alert-info {
     background: #e1f3f8;
-    & .glyphicon {
+    .glyphicon {
         color: #5bc0de;
     }
 }
 
 .alert-warning {
     background: #fff1d2;
-    & .glyphicon {
+    .glyphicon {
         color: #f0ad4e;
     }
 }
 
 .alert-danger, .alert-error {
     background: #f9dede;
-    & .glyphicon {
+    .glyphicon {
         color: #d9534f;
     }
 }
@@ -571,42 +658,31 @@ p {
     padding: 15px 15px 0;
 }
 
-
-
-
 /***** GLOBAL MARGIN AND PADDING *****/
-.mt-0 {
-    margin-top: 0;
-}
+.mt-0 	{  margin-top: 0;  }
+.mt-5 	{  margin-top: 5px;  }
+.mt-10	{  margin-top: 10px;  }
+.mt-15 	{  margin-top: 15px;  }
+.mt-20	{  margin-top: 20px;  }
+.mt-25	{  margin-top: 25px;  }
+.mt-30	{  margin-top: 30px;  }
+.mt-35	{  margin-top: 35px;  }
+.mt-40	{  margin-top: 40px;  }
+.mt-45	{  margin-top: 45px;  }
+.mt-50	{  margin-top: 50px;  }
+.mt-55	{  margin-top: 55px;  }
+.mt-60	{  margin-top: 60px;  }
 
-.mb-0 {
-    margin-bottom: 0;
-}
-
-.mt-10 {
-    margin-top: 10px;
-}
-
-.mt-15 {
-    margin-top: 15px;
-}
-
-.mt-20 {
-    margin-top: 20px;
-}
-
-.mt-30 {
-    margin-top: 30px;
-}
-
-.mt-40 {
-    margin-top: 40px;
-}
-
-.mt-50 {
-    margin-top: 50px;
-}
-
-.mb-40 {
-    margin-bottom: 40px;
-}
+.mb-0 	{  margin-bottom: 0;  }
+.mb-5 	{  margin-bottom: 5px;  }
+.mb-10	{  margin-bottom: 10px;  }
+.mb-15 	{  margin-bottom: 15px;  }
+.mb-20	{  margin-bottom: 20px;  }
+.mb-25	{  margin-bottom: 25px;  }
+.mb-30	{  margin-bottom: 30px;  }
+.mb-35	{  margin-bottom: 35px;  }
+.mb-40	{  margin-bottom: 40px;  }
+.mb-45	{  margin-bottom: 45px;  }
+.mb-50	{  margin-bottom: 50px;  }
+.mb-55	{  margin-bottom: 55px;  }
+.mb-60	{  margin-bottom: 60px;  }
