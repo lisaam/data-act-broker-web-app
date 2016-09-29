@@ -34,6 +34,7 @@ Click these links to download or open a file.
 [Long Element Name to Short Element Name Crosswalk](https://s3-us-gov-west-1.amazonaws.com/prod-data-act-submission/rss/AgencyLabel_to_TerseLabel.xlsx) - A listing of the shortened column names for the data elements in the RSS and IDD.
 
 **DAIMS Diagrams**
+
 These are visual representations of how the different data elements are related. They show the groupings of elements and attributes.
 
 > [File A – Appropriation Account Detail](http://fedspendingtransparency.github.io/assets/docs/DAIMS_RSS_Diagram_File_A_v1.0_04292016.pdf)
