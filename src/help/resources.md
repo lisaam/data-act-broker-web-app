@@ -36,18 +36,18 @@ Click these links to download or open a file.
 **DAIMS Diagrams**
 These are visual representations of how the different data elements are related. They show the groupings of elements and attributes.
 
-[File A – Appropriation Account Detail](http://fedspendingtransparency.github.io/assets/docs/DAIMS_RSS_Diagram_File_A_v1.0_04292016.pdf)
+> [File A – Appropriation Account Detail](http://fedspendingtransparency.github.io/assets/docs/DAIMS_RSS_Diagram_File_A_v1.0_04292016.pdf)
 
-[File B – Object Class and Program Activity Detail](http://fedspendingtransparency.github.io/assets/docs/DAIMS_RSS_Diagram_File_B_v1.0_04292016.pdf)
+> [File B – Object Class and Program Activity Detail](http://fedspendingtransparency.github.io/assets/docs/DAIMS_RSS_Diagram_File_B_v1.0_04292016.pdf)
 
-[File C – Award Financial Detail](http://fedspendingtransparency.github.io/assets/docs/DAIMS_RSS_Diagram_File_C_v1.0_04292016.pdf)
+> [File C – Award Financial Detail](http://fedspendingtransparency.github.io/assets/docs/DAIMS_RSS_Diagram_File_C_v1.0_04292016.pdf)
 	
-[File D1 – Award and Awardee Attributes (Procurement)](http://fedspendingtransparency.github.io/assets/docs/DAIMS_IDD_Diagram_File_D1_v1.0_04292016.pdf)
+> [File D1 – Award and Awardee Attributes (Procurement)](http://fedspendingtransparency.github.io/assets/docs/DAIMS_IDD_Diagram_File_D1_v1.0_04292016.pdf)
 
-[File D2 – Award and Awardee Attributes (Financial Assistance)](http://fedspendingtransparency.github.io/assets/docs/DAIMS_IDD_Diagram_File_D2_v1.0_04292016.pdf)
+> [File D2 – Award and Awardee Attributes (Financial Assistance)](http://fedspendingtransparency.github.io/assets/docs/DAIMS_IDD_Diagram_File_D2_v1.0_04292016.pdf)
 
-[File E – Additional Awardee Attributes](http://fedspendingtransparency.github.io/assets/docs/DAIMS_IDD_Diagram_File_E_v1.0_04292016.pdf)
+> [File E – Additional Awardee Attributes](http://fedspendingtransparency.github.io/assets/docs/DAIMS_IDD_Diagram_File_E_v1.0_04292016.pdf)
 
-[File F – Sub-Award Attributes](http://fedspendingtransparency.github.io/assets/docs/DAIMS_IDD_Diagram_File_F_v1.0_04292016.pdf)
+> [File F – Sub-Award Attributes](http://fedspendingtransparency.github.io/assets/docs/DAIMS_IDD_Diagram_File_F_v1.0_04292016.pdf)
 	
 
